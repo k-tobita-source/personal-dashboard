@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import type { NormalizedItem } from "@acme/integrations";
+import type { NormalizedItem } from "@pdash/integrations";
 
 import { buildUpdateValues, isDue } from "./syncService";
 

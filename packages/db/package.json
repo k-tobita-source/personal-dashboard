@@ -1,5 +1,5 @@
 {
-  "name": "@acme/db",
+  "name": "@pdash/db",
   "private": true,
   "type": "module",
   "exports": {
@@ -41,14 +41,14 @@
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@acme/eslint-config": "workspace:*",
-    "@acme/prettier-config": "workspace:*",
-    "@acme/tsconfig": "workspace:*",
+    "@pdash/eslint-config": "workspace:*",
+    "@pdash/prettier-config": "workspace:*",
+    "@pdash/tsconfig": "workspace:*",
     "@types/better-sqlite3": "^7.6.13",
     "drizzle-kit": "^0.31.5",
     "eslint": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:"
   },
-  "prettier": "@acme/prettier-config"
+  "prettier": "@pdash/prettier-config"
 }

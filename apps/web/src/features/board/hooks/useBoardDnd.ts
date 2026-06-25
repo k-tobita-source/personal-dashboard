@@ -8,7 +8,7 @@ import type {
 import { useState } from "react";
 import { PointerSensor, useSensor, useSensors } from "@dnd-kit/core";
 
-import type { Lane } from "@acme/db/schema";
+import type { Lane } from "@pdash/db/schema";
 
 import type { Task } from "../types/task";
 import type { LaneOrder } from "../utils/reorder";

@@ -1,5 +1,5 @@
 {
-  "name": "@acme/mcp",
+  "name": "@pdash/mcp",
   "private": true,
   "type": "module",
   "license": "MIT",
@@ -14,15 +14,15 @@
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
-    "@acme/api": "workspace:*",
-    "@acme/db": "workspace:*",
     "@modelcontextprotocol/sdk": "^1.29.0",
+    "@pdash/api": "workspace:*",
+    "@pdash/db": "workspace:*",
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@acme/eslint-config": "workspace:*",
-    "@acme/prettier-config": "workspace:*",
-    "@acme/tsconfig": "workspace:*",
+    "@pdash/eslint-config": "workspace:*",
+    "@pdash/prettier-config": "workspace:*",
+    "@pdash/tsconfig": "workspace:*",
     "@types/node": "catalog:",
     "eslint": "catalog:",
     "prettier": "catalog:",
@@ -30,5 +30,5 @@
     "typescript": "catalog:",
     "vitest": "catalog:"
   },
-  "prettier": "@acme/prettier-config"
+  "prettier": "@pdash/prettier-config"
 }

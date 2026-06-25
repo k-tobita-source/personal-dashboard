@@ -1,8 +1,8 @@
 import { beforeAll, beforeEach, describe, expect, it } from "vitest";
 
-import { db } from "@acme/db/client";
-import { runMigrations } from "@acme/db/migrate";
-import { Task } from "@acme/db/schema";
+import { db } from "@pdash/db/client";
+import { runMigrations } from "@pdash/db/migrate";
+import { Task } from "@pdash/db/schema";
 
 import { tools } from "./tools";
 

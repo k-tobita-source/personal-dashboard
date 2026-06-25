@@ -37,7 +37,9 @@ export function humanizeSlackText(text: string): string {
 }
 
 /** Slack の match を NormalizedItem に変換（channel.id / ts 欠落・ノイズ送信者は null） */
-export function normalizeSlackMessage(match: SlackMatch): NormalizedItem | null {
+export function normalizeSlackMessage(
+  match: SlackMatch,
+): NormalizedItem | null {
   const channelId = match.channel?.id;
   const ts = match.ts;
   if (!channelId || !ts) return null;
@@ -138,7 +140,8 @@ export async function getUserProfiles(
         // Slack の表示ロジックに合わせる: display_name（空なら real_name）。
         // trim() 後に空文字になる場合は次の候補へ落とすため、条件分岐で処理する。
         const rawDisplayName = profile?.display_name?.trim();
-        const rawRealName = profile?.real_name?.trim() ?? res.user?.real_name?.trim();
+        const rawRealName =
+          profile?.real_name?.trim() ?? res.user?.real_name?.trim();
         const displayName =
           rawDisplayName !== "" && rawDisplayName !== undefined
             ? rawDisplayName
@@ -217,8 +220,7 @@ export async function fetchSlackMentionsAndDms(
     // 送信者名は Slack の表示名で上書き（無ければ既存の username 等を維持）
     const sender = profile.displayName ?? item.sender;
     // DM 等でタイトルが送信者にフォールバックしていた場合は表示名へ揃える
-    const title =
-      item.title === item.sender && sender ? sender : item.title;
+    const title = item.title === item.sender && sender ? sender : item.title;
     const next: NormalizedItem = { ...item, sender, title };
     if (profile.avatarUrl) next.avatarUrl = profile.avatarUrl;
     return next;

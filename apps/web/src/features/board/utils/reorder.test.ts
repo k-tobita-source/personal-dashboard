@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import type { Lane } from "@acme/db/schema";
+import type { Lane } from "@pdash/db/schema";
 
 import { moveItemToLane, ordersEqual, resolveColumnDrop } from "./reorder";
 

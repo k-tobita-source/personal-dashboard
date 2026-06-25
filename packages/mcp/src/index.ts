@@ -6,7 +6,7 @@ import {
 } from "@modelcontextprotocol/sdk/types.js";
 import { z } from "zod/v4";
 
-import { runMigrations } from "@acme/db/migrate";
+import { runMigrations } from "@pdash/db/migrate";
 
 import { tools } from "./tools";
 

@@ -11,7 +11,7 @@ export const env = createEnv({
    * Specify your server-side environment variables schema here.
    * This way you can ensure the app isn't built with invalid env vars.
    *
-   * DB はローカルファイル（既定 ~/.personal-dashboard/kanban.db）。パスは @acme/db が
+   * DB はローカルファイル（既定 ~/.personal-dashboard/kanban.db）。パスは @pdash/db が
    * KANBAN_DB_PATH を直接参照するため、ここでは必須にしない。
    */
   server: {

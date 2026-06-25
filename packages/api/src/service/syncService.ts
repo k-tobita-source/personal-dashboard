@@ -1,13 +1,13 @@
-import { and, eq } from "@acme/db";
-import { db } from "@acme/db/client";
-import { SyncState, Task } from "@acme/db/schema";
-import type { IntegrationSource, NormalizedItem } from "@acme/integrations";
+import type { IntegrationSource, NormalizedItem } from "@pdash/integrations";
+import { and, eq } from "@pdash/db";
+import { db } from "@pdash/db/client";
+import { SyncState, Task } from "@pdash/db/schema";
 import {
   fetchCalendarToday,
   fetchSlackMentionsAndDms,
   fetchUnreadInbox,
   loadGoogleAuth,
-} from "@acme/integrations";
+} from "@pdash/integrations";
 
 import { nextPosition } from "./task";
 

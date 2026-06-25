@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-import type { Lane } from "@acme/db/schema";
+import type { Lane } from "@pdash/db/schema";
 
 import type { Task } from "../types/task";
 import { selectAutoMoves } from "../utils/autoAdvance";

@@ -1,13 +1,17 @@
 import type { WebClient } from "@slack/web-api";
 import { describe, expect, it } from "vitest";
 
-import { getUserProfiles, humanizeSlackText, normalizeSlackMessage } from "./client";
+import {
+  getUserProfiles,
+  humanizeSlackText,
+  normalizeSlackMessage,
+} from "./client";
 
 describe("humanizeSlackText", () => {
   it("ラベル付きユーザーメンションを @名前 に整形", () => {
-    expect(humanizeSlackText("<@U0AQ2QR1RD4|Kokoro Tobita/GMO-FH> よろしく")).toBe(
-      "@Kokoro Tobita/GMO-FH よろしく",
-    );
+    expect(
+      humanizeSlackText("<@U0AQ2QR1RD4|Kokoro Tobita/GMO-FH> よろしく"),
+    ).toBe("@Kokoro Tobita/GMO-FH よろしく");
   });
 
   it("ラベル無しメンション/チャンネル参照/特殊メンション/リンクを整形", () => {
@@ -25,7 +29,9 @@ describe("humanizeSlackText", () => {
 
   it("date トークンはフォールバック文言に置換", () => {
     expect(
-      humanizeSlackText("*Today*-<!date^1781449200^{date_long}|Monday, June 15, 2026>"),
+      humanizeSlackText(
+        "*Today*-<!date^1781449200^{date_long}|Monday, June 15, 2026>",
+      ),
     ).toBe("*Today*-Monday, June 15, 2026");
   });
 });
@@ -121,7 +127,9 @@ describe("getUserProfiles", () => {
       users: {
         info: () =>
           Promise.resolve({
-            user: { profile: { display_name: "", real_name: "Tetsuro Fujita" } },
+            user: {
+              profile: { display_name: "", real_name: "Tetsuro Fujita" },
+            },
           }),
       },
     } as unknown as WebClient;

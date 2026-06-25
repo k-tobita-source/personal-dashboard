@@ -1,8 +1,8 @@
 import { z } from "zod/v4";
 
-import type { TaskRow } from "@acme/db/schema";
-import { taskService } from "@acme/api/service";
-import { LANES } from "@acme/db/schema";
+import type { TaskRow } from "@pdash/db/schema";
+import { taskService } from "@pdash/api/service";
+import { LANES } from "@pdash/db/schema";
 
 import { parseDate, parseNullableDate, toCardView } from "./mapping";
 

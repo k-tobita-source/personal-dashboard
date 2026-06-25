@@ -1,5 +1,5 @@
 {
-  "name": "@acme/web",
+  "name": "@pdash/web",
   "private": true,
   "type": "module",
   "scripts": {
@@ -14,13 +14,13 @@
     "with-env": "dotenv -e ../../.env --"
   },
   "dependencies": {
-    "@acme/api": "workspace:*",
-    "@acme/db": "workspace:*",
-    "@acme/integrations": "workspace:*",
-    "@acme/ui": "workspace:*",
     "@dnd-kit/core": "^6.3.1",
     "@dnd-kit/sortable": "^10.0.0",
     "@dnd-kit/utilities": "^3.2.2",
+    "@pdash/api": "workspace:*",
+    "@pdash/db": "workspace:*",
+    "@pdash/integrations": "workspace:*",
+    "@pdash/ui": "workspace:*",
     "@radix-ui/react-icons": "^1.3.2",
     "@t3-oss/env-nextjs": "^0.13.8",
     "@tanstack/react-form": "catalog:",
@@ -37,10 +37,10 @@
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@acme/eslint-config": "workspace:*",
-    "@acme/prettier-config": "workspace:*",
-    "@acme/tailwind-config": "workspace:*",
-    "@acme/tsconfig": "workspace:*",
+    "@pdash/eslint-config": "workspace:*",
+    "@pdash/prettier-config": "workspace:*",
+    "@pdash/tailwind-config": "workspace:*",
+    "@pdash/tsconfig": "workspace:*",
     "@types/node": "catalog:",
     "@types/react": "catalog:react19",
     "@types/react-dom": "catalog:react19",
@@ -52,5 +52,5 @@
     "typescript": "catalog:",
     "vitest": "catalog:"
   },
-  "prettier": "@acme/prettier-config"
+  "prettier": "@pdash/prettier-config"
 }

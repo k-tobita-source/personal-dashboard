@@ -1,9 +1,9 @@
 import { z } from "zod/v4";
 
-import type { Lane } from "@acme/db/schema";
-import { asc, eq, sql } from "@acme/db";
-import { db } from "@acme/db/client";
-import { LANES, Task } from "@acme/db/schema";
+import type { Lane } from "@pdash/db/schema";
+import { asc, eq, sql } from "@pdash/db";
+import { db } from "@pdash/db/client";
+import { LANES, Task } from "@pdash/db/schema";
 
 /**
  * task の純粋なドメイン操作。tRPC ルーター（Web）からも MCP サーバーからも

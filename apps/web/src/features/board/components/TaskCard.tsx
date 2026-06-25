@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 
-import { cn } from "@acme/ui";
+import { cn } from "@pdash/ui";
 
 import type { Task } from "../types/task";
 import { SlackAvatar } from "./SlackAvatar";

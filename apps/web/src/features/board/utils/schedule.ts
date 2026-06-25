@@ -138,10 +138,7 @@ export function assignScheduleColumns<
   for (const { task } of items) {
     const s = task.startAt;
     if (!s) continue;
-    const dur = Math.max(
-      durationMinutes(s, task.endAt),
-      MIN_DURATION_MINUTES,
-    );
+    const dur = Math.max(durationMinutes(s, task.endAt), MIN_DURATION_MINUTES);
     intervals.push({
       id: task.id,
       start: s.getTime(),

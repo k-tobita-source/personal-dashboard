@@ -7,8 +7,8 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 
-import type { Lane } from "@acme/db/schema";
-import { cn } from "@acme/ui";
+import type { Lane } from "@pdash/db/schema";
+import { cn } from "@pdash/ui";
 
 import type { Task } from "../types/task";
 import { LANE_ICON } from "../configs/board";

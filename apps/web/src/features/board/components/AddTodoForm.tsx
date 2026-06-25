@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 
-import { Button } from "@acme/ui/button";
-import { Input } from "@acme/ui/input";
+import { Button } from "@pdash/ui/button";
+import { Input } from "@pdash/ui/input";
 
 import { useCreateTask } from "../api/mutations";
 

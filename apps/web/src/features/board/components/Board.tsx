@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { DndContext, DragOverlay } from "@dnd-kit/core";
 
-import type { Lane } from "@acme/db/schema";
+import type { Lane } from "@pdash/db/schema";
 
 import type { Task } from "../types/task";
 import {

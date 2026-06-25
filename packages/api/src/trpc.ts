@@ -16,7 +16,7 @@ import { z, ZodError } from "zod/v4";
  * This section defines the "contexts" that are available in the backend API.
  *
  * Single-user local app: no authentication. DB access は service 層が
- * `@acme/db/client` の db を直接利用するため、コンテキストには載せない
+ * `@pdash/db/client` の db を直接利用するため、コンテキストには載せない
  * （better-sqlite3 の型がパッケージ境界を越えて漏れるのを防ぐ）。
  *
  * @see https://trpc.io/docs/server/context

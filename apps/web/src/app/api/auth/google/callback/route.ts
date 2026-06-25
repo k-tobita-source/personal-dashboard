@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import { exchangeCodeAndSave } from "@acme/integrations";
+import { exchangeCodeAndSave } from "@pdash/integrations";
 
 export async function GET(request: Request) {
   const url = new URL(request.url);

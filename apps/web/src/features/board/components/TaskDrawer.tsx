@@ -4,8 +4,8 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { ChevronDownIcon, ChevronUpIcon } from "@radix-ui/react-icons";
 import { format } from "date-fns";
 
-import type { Lane } from "@acme/db/schema";
-import { cn } from "@acme/ui";
+import type { Lane } from "@pdash/db/schema";
+import { cn } from "@pdash/ui";
 
 import type { Task } from "../types/task";
 import {

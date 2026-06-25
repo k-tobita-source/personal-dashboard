@@ -2,7 +2,7 @@
 
 import { Popover as PopoverPrimitive } from "radix-ui";
 
-import { cn } from "@acme/ui";
+import { cn } from "@pdash/ui";
 
 export function Popover({
   ...props

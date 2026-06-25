@@ -3,8 +3,8 @@
 import type { QueryClient, QueryKey } from "@tanstack/react-query";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
-import type { RouterInputs } from "@acme/api";
-import { LANES } from "@acme/db/schema";
+import type { RouterInputs } from "@pdash/api";
+import { LANES } from "@pdash/db/schema";
 
 import type { Task } from "../types/task";
 import { useTRPC } from "~/trpc/react";

@@ -134,25 +134,17 @@
       "indexes": {
         "task_source_external_id_unq": {
           "name": "task_source_external_id_unq",
-          "columns": [
-            "source",
-            "external_id"
-          ],
+          "columns": ["source", "external_id"],
           "isUnique": true
         },
         "task_lane_position_idx": {
           "name": "task_lane_position_idx",
-          "columns": [
-            "lane",
-            "position"
-          ],
+          "columns": ["lane", "position"],
           "isUnique": false
         },
         "task_start_at_idx": {
           "name": "task_start_at_idx",
-          "columns": [
-            "start_at"
-          ],
+          "columns": ["start_at"],
           "isUnique": false
         }
       },

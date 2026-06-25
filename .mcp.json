@@ -2,7 +2,7 @@
   "mcpServers": {
     "personal-dashboard": {
       "command": "pnpm",
-      "args": ["-F", "@acme/mcp", "start"]
+      "args": ["-F", "@pdash/mcp", "start"]
     },
     "confluence": {
       "command": "uvx",

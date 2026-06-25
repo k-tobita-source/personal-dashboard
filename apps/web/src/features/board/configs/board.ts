@@ -5,16 +5,13 @@ import {
   UpdateIcon,
 } from "@radix-ui/react-icons";
 
-import type { Lane, Source } from "@acme/db/schema";
+import type { Lane, Source } from "@pdash/db/schema";
 
 // 各 Radix アイコンは同一の型なので、代表 1 つから型を導出する
 type RadixIcon = typeof ArchiveIcon;
 
 /** レーン見出しに表示するアイコン（Radix Icons）と色クラス */
-export const LANE_ICON: Record<
-  Lane,
-  { icon: RadixIcon; className: string }
-> = {
+export const LANE_ICON: Record<Lane, { icon: RadixIcon; className: string }> = {
   inbox: { icon: ArchiveIcon, className: "text-slate-500" },
   schedule: { icon: CalendarIcon, className: "text-blue-600" },
   in_progress: { icon: UpdateIcon, className: "text-amber-600" },

@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useDraggable } from "@dnd-kit/core";
 import { format } from "date-fns";
 
-import { cn } from "@acme/ui";
+import { cn } from "@pdash/ui";
 
 import type { Task } from "../types/task";
 import {

@@ -1,6 +1,6 @@
 import type { TRPCRouterRecord } from "@trpc/server";
 
-import { isConnected } from "@acme/integrations";
+import { isConnected } from "@pdash/integrations";
 
 import { run } from "../service/syncService";
 import { publicProcedure } from "../trpc";

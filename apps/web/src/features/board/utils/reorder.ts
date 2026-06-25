@@ -1,7 +1,7 @@
 import { arrayMove } from "@dnd-kit/sortable";
 
-import type { Lane } from "@acme/db/schema";
-import { LANES } from "@acme/db/schema";
+import type { Lane } from "@pdash/db/schema";
+import { LANES } from "@pdash/db/schema";
 
 import { positionBetween } from "./position";
 

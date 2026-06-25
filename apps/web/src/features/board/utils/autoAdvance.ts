@@ -1,4 +1,4 @@
-import type { Lane } from "@acme/db/schema";
+import type { Lane } from "@pdash/db/schema";
 
 import type { Task } from "../types/task";
 
@@ -38,7 +38,11 @@ export function selectAutoMoves(
       moves.push({ id: task.id, lane: "done" });
       continue;
     }
-    if (task.lane === "schedule" && task.startAt && task.startAt.getTime() <= nowMs) {
+    if (
+      task.lane === "schedule" &&
+      task.startAt &&
+      task.startAt.getTime() <= nowMs
+    ) {
       moves.push({ id: task.id, lane: "in_progress" });
     }
   }

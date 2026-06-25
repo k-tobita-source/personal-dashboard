@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Noto_Sans_JP } from "next/font/google";
 
-import { cn } from "@acme/ui";
-import { ThemeProvider, ThemeToggle } from "@acme/ui/theme";
-import { Toaster } from "@acme/ui/toast";
+import { cn } from "@pdash/ui";
+import { ThemeProvider, ThemeToggle } from "@pdash/ui/theme";
+import { Toaster } from "@pdash/ui/toast";
 
 import { TRPCReactProvider } from "~/trpc/react";
 

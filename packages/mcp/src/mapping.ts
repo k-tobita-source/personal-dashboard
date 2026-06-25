@@ -1,4 +1,4 @@
-import type { TaskRow } from "@acme/db/schema";
+import type { TaskRow } from "@pdash/db/schema";
 
 /** body プレビューの最大文字数 */
 const BODY_PREVIEW_LEN = 200;

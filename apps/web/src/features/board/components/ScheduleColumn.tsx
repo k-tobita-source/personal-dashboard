@@ -3,8 +3,8 @@
 import { useEffect, useRef, useSyncExternalStore } from "react";
 import { useDroppable } from "@dnd-kit/core";
 
-import { cn } from "@acme/ui";
-import { Popover, PopoverAnchor, PopoverContent } from "@acme/ui/popover";
+import { cn } from "@pdash/ui";
+import { Popover, PopoverAnchor, PopoverContent } from "@pdash/ui/popover";
 
 import type { ScheduleBlockItem } from "../utils/schedule";
 import {

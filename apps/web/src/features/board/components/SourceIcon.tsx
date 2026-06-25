@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import type { Source } from "@acme/db/schema";
+import type { Source } from "@pdash/db/schema";
 
 import { SOURCE_ICON } from "../configs/board";
 

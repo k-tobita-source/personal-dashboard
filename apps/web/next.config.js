@@ -8,7 +8,12 @@ await jiti.import("./src/env");
 /** @type {import("next").NextConfig} */
 const config = {
   /** Enables hot reloading for local packages without a build step */
-  transpilePackages: ["@acme/api", "@acme/db", "@acme/ui", "@acme/validators"],
+  transpilePackages: [
+    "@pdash/api",
+    "@pdash/db",
+    "@pdash/ui",
+    "@pdash/validators",
+  ],
 
   /** better-sqlite3 はネイティブモジュールなのでバンドルせず実行時に require する */
   serverExternalPackages: ["better-sqlite3"],
