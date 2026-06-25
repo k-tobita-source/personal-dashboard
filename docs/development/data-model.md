@@ -108,7 +108,7 @@ lane:   'inbox' | 'schedule' | 'in_progress' | 'done'
 - `client.ts`：`@vercel/postgres` → `better-sqlite3` + `drizzle-orm/better-sqlite3`。WAL モードを有効化。
 - `schema.ts`：`pgTable` → `sqliteTable`。既存の例示 `Post` テーブルは削除し `task`（export 名 `Task`）を定義。
 - `index.ts`：`drizzle-orm/pg-core` の re-export を sqlite 系へ。
-- DBファイル配置：`~/.my-kanban/kanban.db`（リポジトリ外）。
+- DBファイル配置：`~/.personal-dashboard/kanban.db`（リポジトリ外）。
 - `.env.example` / `env.ts` から `POSTGRES_URL` を撤去し、DBパス設定へ差し替え。
 
 ---

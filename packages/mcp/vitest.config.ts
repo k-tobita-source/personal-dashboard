@@ -6,7 +6,7 @@ export default defineConfig({
   test: {
     environment: "node",
     env: {
-      // 本物の ~/.my-kanban/kanban.db を汚さないよう一時ファイルへ向ける
+      // 本物の ~/.personal-dashboard/kanban.db を汚さないよう一時ファイルへ向ける
       KANBAN_DB_PATH: join(tmpdir(), "kanban-mcp-test.db"),
     },
   },

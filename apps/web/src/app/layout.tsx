@@ -11,7 +11,7 @@ import "~/app/styles.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("http://localhost:3000"),
-  title: "my-kanban",
+  title: "personal-dashboard",
   description: "個人用カンバンダッシュボード",
 };
 

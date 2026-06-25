@@ -1,6 +1,6 @@
-# MYダッシュボード
+# personal-dashboard
 
-当日の予定・Slack の依頼・Gmail・独自 ToDo を 1 画面のカンバンに集約する、ローカル完結の個人用ダッシュボード（単一ユーザー前提）。create-t3-turbo ベースの pnpm + Turborepo モノレポ。
+Googleカレンダーの予定・Slack通知・Gmail・独自 ToDo を 1 画面に集約する、ローカル完結の個人用ダッシュボード。Web UIとClaude（Claude Code / Claude Desktop）から操作するためのMCPを提供。
 
 ## 前提環境
 

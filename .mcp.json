@@ -1,6 +1,6 @@
 {
   "mcpServers": {
-    "my-kanban": {
+    "personal-dashboard": {
       "command": "pnpm",
       "args": ["-F", "@acme/mcp", "start"]
     },

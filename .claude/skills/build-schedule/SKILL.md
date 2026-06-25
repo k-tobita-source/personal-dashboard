@@ -5,8 +5,8 @@ description: 当日の schedule レーンを全自動で組み立てる。inbox 
 
 # build-schedule
 
-my-kanban の当日 schedule レーンを**全自動**で組み立てる。MCP ツール
-`mcp__my-kanban__list_tasks` / `move_task` / `update_task` のみを使う。
+personal-dashboard の当日 schedule レーンを**全自動**で組み立てる。MCP ツール
+`mcp__personal-dashboard__list_tasks` / `move_task` / `update_task` のみを使う。
 
 ## 前提・規約
 

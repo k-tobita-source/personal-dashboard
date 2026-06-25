@@ -11,7 +11,7 @@ import { runMigrations } from "@acme/db/migrate";
 import { tools } from "./tools";
 
 const server = new Server(
-  { name: "my-kanban", version: "0.1.0" },
+  { name: "personal-dashboard", version: "0.1.0" },
   { capabilities: { tools: {} } },
 );
 
