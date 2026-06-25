@@ -54,7 +54,14 @@ pnpm -F @acme/db migrate
 
 `.env` は OAuth の **クライアント情報のみ**を保持する。Google のアクセストークンや取得データはコミットされず、ユーザー領域（`~/.personal-dashboard/`）に保存される。
 
-### 外部連携
+## 起動
+
+```sh
+pnpm dev:next            # Web のみ起動 → http://localhost:3000
+pnpm dev                 # 全パッケージの dev をまとめて起動
+```
+
+## 外部連携
 
 | ソース                   | 取り込み先 | スコープ            | 接続方法                                                             |
 | ------------------------ | ---------- | ------------------- | -------------------------------------------------------------------- |
@@ -64,7 +71,7 @@ pnpm -F @acme/db migrate
 
 未接続のソースは同期時に自動でスキップされる。
 
-### DB
+## DB
 
 - ローカルの SQLite ファイルに保存（クラウド送信なし）。既定の保存先は `~/.personal-dashboard/kanban.db`。
 
@@ -81,14 +88,7 @@ pnpm -F @acme/db migrate
 
 - WAL モードで開くため、Web プロセスと MCP プロセスからの並行アクセスを許容する。
 
-## 起動
-
-```sh
-pnpm dev:next            # Web のみ起動 → http://localhost:3000
-pnpm dev                 # 全パッケージの dev をまとめて起動
-```
-
-## MCP サーバー
+## MCP
 
 Claude から本ボードを操作するための `personal-dashboard` サーバーが `.mcp.json`（Claude Code が読み込む）に定義済み。Claude Desktop で使う場合は `claude_desktop_config.json` に同等の設定を追加する。
 
