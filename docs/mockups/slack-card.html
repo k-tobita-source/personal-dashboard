@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Slack カード デザイン案モック</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ---- 実アプリと同じ GitHub 風ライトテーマ ---- */
+      :root {
+        --background: #f6f8fa;
+        --card: #ffffff;
+        --foreground: #1f2328;
+        --muted: #f6f8fa;
+        --muted-foreground: #656d76;
+        --border: #d0d7de;
+        --primary: #0969da;
+        --slack-aubergine: #4a154b;
+        font-family:
+          "Noto Sans JP", -apple-system, BlinkMacSystemFont, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--background);
+        color: var(--foreground);
+        -webkit-font-smoothing: antialiased;
+        padding: 48px 32px 96px;
+      }
+
+      header.page {
+        max-width: 1100px;
+        margin: 0 auto 40px;
+      }
+      header.page h1 {
+        font-size: 22px;
+        font-weight: 700;
+        margin: 0 0 8px;
+        letter-spacing: -0.01em;
+      }
+      header.page p {
+        margin: 0;
+        font-size: 13px;
+        line-height: 1.7;
+        color: var(--muted-foreground);
+        max-width: 760px;
+      }
+
+      .grid {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 28px;
+      }
+
+      .option {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .option > .label {
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+      }
+      .option .tag {
+        font-size: 11px;
+        font-weight: 700;
+        color: #fff;
+        background: var(--primary);
+        border-radius: 999px;
+        padding: 2px 9px;
+        letter-spacing: 0.02em;
+      }
+      .option .label h2 {
+        font-size: 14px;
+        font-weight: 700;
+        margin: 0;
+      }
+      .option .desc {
+        font-size: 12px;
+        line-height: 1.6;
+        color: var(--muted-foreground);
+        margin: -4px 0 2px;
+      }
+      .stack {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        /* カラム幅を模した枠 */
+        background: var(--muted);
+        border-radius: 8px;
+        padding: 10px;
+      }
+
+      /* ---- カード共通（実アプリ TaskCard 準拠） ---- */
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        padding: 8px;
+        font-size: 14px;
+      }
+      .card .body {
+        color: var(--muted-foreground);
+        font-size: 12px;
+        line-height: 1.45;
+        margin: 4px 0 0;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .name {
+        font-weight: 400;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .channel {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 12px;
+        color: var(--muted-foreground);
+        min-width: 0;
+      }
+      .channel span {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      /* アバター画像（ダミー：イニシャルのグラデ） */
+      .av {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-weight: 700;
+        font-size: 13px;
+        background: linear-gradient(135deg, #36c5f0, #2eb67d);
+        overflow: hidden;
+      }
+      .av.b {
+        background: linear-gradient(135deg, #ecb22e, #e01e5a);
+      }
+      .av.round {
+        border-radius: 999px;
+      }
+      .av.square {
+        border-radius: 6px;
+      }
+      .av-28 {
+        width: 28px;
+        height: 28px;
+      }
+      .av-36 {
+        width: 36px;
+        height: 36px;
+      }
+      .av-40 {
+        width: 40px;
+        height: 40px;
+      }
+
+      .slack-logo {
+        flex-shrink: 0;
+      }
+
+      .row {
+        display: flex;
+        gap: 8px;
+      }
+      .row.center {
+        align-items: center;
+      }
+      .row.start {
+        align-items: flex-start;
+      }
+      .textcol {
+        min-width: 0;
+        flex: 1;
+      }
+
+      /* corner badge (案D) */
+      .av-wrap {
+        position: relative;
+        flex-shrink: 0;
+      }
+      .av-wrap .badge {
+        position: absolute;
+        right: -3px;
+        bottom: -3px;
+        width: 16px;
+        height: 16px;
+        border-radius: 5px;
+        background: #fff;
+        border: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .note {
+        font-size: 11px;
+        color: var(--muted-foreground);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="page">
+      <h1>Slack カード — 高さ揃え＆アイコン形状のデザイン案</h1>
+      <p>
+        現状はアバター（28px 円）に対し「名前＋チャンネル名」の2行が約36px
+        あり、アイコンが上寄せで下に余白が出て低く見えています。各案ともアバター高さをテキスト2行に合わせて揃えました。各カードは
+        Slack カラムの実際の幅・余白を模しています。
+      </p>
+    </header>
+
+    <div class="grid">
+      <!-- 現状 -->
+      <section class="option">
+        <div class="label">
+          <span class="tag" style="background: #656d76">現状</span>
+          <h2>28px 丸・上寄せ</h2>
+        </div>
+        <p class="desc">
+          アバター 28px に対しテキストが約36px。<code>items-start</code>
+          で上揃えのため下に空きが出る。
+        </p>
+        <div class="stack">
+          <article class="card">
+            <div class="row start">
+              <span class="av round av-28">田</span>
+              <div class="textcol">
+                <div class="name">田中 太郎</div>
+                <div class="channel">
+                  <svg class="slack-logo" width="12" height="12" viewBox="0 0 122.8 122.8"><path fill="#e01e5a" d="M25.8 77.6c0 7.1-5.8 12.9-12.9 12.9S0 84.7 0 77.6s5.8-12.9 12.9-12.9h12.9zm6.5 0c0-7.1 5.8-12.9 12.9-12.9s12.9 5.8 12.9 12.9v32.3c0 7.1-5.8 12.9-12.9 12.9s-12.9-5.8-12.9-12.9z"/><path fill="#36c5f0" d="M45.2 25.8c-7.1 0-12.9-5.8-12.9-12.9S38.1 0 45.2 0s12.9 5.8 12.9 12.9v12.9zm0 6.5c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9H12.9C5.8 58.1 0 52.3 0 45.2s5.8-12.9 12.9-12.9z"/><path fill="#2eb67d" d="M97 45.2c0-7.1 5.8-12.9 12.9-12.9s12.9 5.8 12.9 12.9-5.8 12.9-12.9 12.9H97zm-6.5 0c0 7.1-5.8 12.9-12.9 12.9s-12.9-5.8-12.9-12.9V12.9C64.7 5.8 70.5 0 77.6 0s12.9 5.8 12.9 12.9z"/><path fill="#ecb22e" d="M77.6 97c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9-12.9-5.8-12.9-12.9V97zm0-6.5c-7.1 0-12.9-5.8-12.9-12.9s5.8-12.9 12.9-12.9h32.3c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9z"/></svg>
+                  <span>#general</span>
+                </div>
+              </div>
+            </div>
+            <p class="body">明日の定例、資料のレビューお願いできますか？ドラフトを共有しました。</p>
+          </article>
+        </div>
+        <p class="note">← アイコン下に余白。基準として掲載。</p>
+      </section>
+
+      <!-- 案A -->
+      <section class="option">
+        <div class="label">
+          <span class="tag">案 A</span>
+          <h2>丸のまま中央寄せ・36px</h2>
+        </div>
+        <p class="desc">
+          最小変更。アバターを 36px に拡大しテキスト2行と同じ高さに。<code>items-center</code>
+          で縦中央。
+        </p>
+        <div class="stack">
+          <article class="card">
+            <div class="row center">
+              <span class="av round av-36">田</span>
+              <div class="textcol">
+                <div class="name">田中 太郎</div>
+                <div class="channel">
+                  <svg class="slack-logo" width="12" height="12" viewBox="0 0 122.8 122.8"><path fill="#e01e5a" d="M25.8 77.6c0 7.1-5.8 12.9-12.9 12.9S0 84.7 0 77.6s5.8-12.9 12.9-12.9h12.9zm6.5 0c0-7.1 5.8-12.9 12.9-12.9s12.9 5.8 12.9 12.9v32.3c0 7.1-5.8 12.9-12.9 12.9s-12.9-5.8-12.9-12.9z"/><path fill="#36c5f0" d="M45.2 25.8c-7.1 0-12.9-5.8-12.9-12.9S38.1 0 45.2 0s12.9 5.8 12.9 12.9v12.9zm0 6.5c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9H12.9C5.8 58.1 0 52.3 0 45.2s5.8-12.9 12.9-12.9z"/><path fill="#2eb67d" d="M97 45.2c0-7.1 5.8-12.9 12.9-12.9s12.9 5.8 12.9 12.9-5.8 12.9-12.9 12.9H97zm-6.5 0c0 7.1-5.8 12.9-12.9 12.9s-12.9-5.8-12.9-12.9V12.9C64.7 5.8 70.5 0 77.6 0s12.9 5.8 12.9 12.9z"/><path fill="#ecb22e" d="M77.6 97c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9-12.9-5.8-12.9-12.9V97zm0-6.5c-7.1 0-12.9-5.8-12.9-12.9s5.8-12.9 12.9-12.9h32.3c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9z"/></svg>
+                  <span>#general</span>
+                </div>
+              </div>
+            </div>
+            <p class="body">明日の定例、資料のレビューお願いできますか？ドラフトを共有しました。</p>
+          </article>
+        </div>
+        <p class="note">いちばん手軽。Slack らしい円アバターを維持。</p>
+      </section>
+
+      <!-- 案B -->
+      <section class="option">
+        <div class="label">
+          <span class="tag">案 B</span>
+          <h2>四角（角丸6px）・36px</h2>
+        </div>
+        <p class="desc">
+          アバターを角丸の四角に。テキスト2行と高さ・端が揃い、整然とした印象。
+        </p>
+        <div class="stack">
+          <article class="card">
+            <div class="row center">
+              <span class="av square av-36">田</span>
+              <div class="textcol">
+                <div class="name">田中 太郎</div>
+                <div class="channel">
+                  <svg class="slack-logo" width="12" height="12" viewBox="0 0 122.8 122.8"><path fill="#e01e5a" d="M25.8 77.6c0 7.1-5.8 12.9-12.9 12.9S0 84.7 0 77.6s5.8-12.9 12.9-12.9h12.9zm6.5 0c0-7.1 5.8-12.9 12.9-12.9s12.9 5.8 12.9 12.9v32.3c0 7.1-5.8 12.9-12.9 12.9s-12.9-5.8-12.9-12.9z"/><path fill="#36c5f0" d="M45.2 25.8c-7.1 0-12.9-5.8-12.9-12.9S38.1 0 45.2 0s12.9 5.8 12.9 12.9v12.9zm0 6.5c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9H12.9C5.8 58.1 0 52.3 0 45.2s5.8-12.9 12.9-12.9z"/><path fill="#2eb67d" d="M97 45.2c0-7.1 5.8-12.9 12.9-12.9s12.9 5.8 12.9 12.9-5.8 12.9-12.9 12.9H97zm-6.5 0c0 7.1-5.8 12.9-12.9 12.9s-12.9-5.8-12.9-12.9V12.9C64.7 5.8 70.5 0 77.6 0s12.9 5.8 12.9 12.9z"/><path fill="#ecb22e" d="M77.6 97c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9-12.9-5.8-12.9-12.9V97zm0-6.5c-7.1 0-12.9-5.8-12.9-12.9s5.8-12.9 12.9-12.9h32.3c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9z"/></svg>
+                  <span>#general</span>
+                </div>
+              </div>
+            </div>
+            <p class="body">明日の定例、資料のレビューお願いできますか？ドラフトを共有しました。</p>
+          </article>
+        </div>
+        <p class="note">カードの角丸(4px)と相性◎。ご提案の「四角」案。</p>
+      </section>
+
+      <!-- 案C -->
+      <section class="option">
+        <div class="label">
+          <span class="tag">案 C</span>
+          <h2>1行化・28px 丸を維持</h2>
+        </div>
+        <p class="desc">
+          名前とチャンネルを <code>名前 · #channel</code>
+          の1行に集約。テキストが1行なので 28px 円とぴったり揃う。
+        </p>
+        <div class="stack">
+          <article class="card">
+            <div class="row center">
+              <span class="av round av-28">田</span>
+              <div class="textcol channel" style="color: var(--foreground)">
+                <span class="name" style="flex: 0 1 auto">田中 太郎</span>
+                <span style="color: var(--muted-foreground); flex-shrink: 0">·</span>
+                <span style="color: var(--muted-foreground)">#general</span>
+              </div>
+            </div>
+            <p class="body">明日の定例、資料のレビューお願いできますか？ドラフトを共有しました。</p>
+          </article>
+        </div>
+        <p class="note">いちばんコンパクト。多数のカードを詰めたい時向き。</p>
+      </section>
+
+      <!-- 案D -->
+      <section class="option">
+        <div class="label">
+          <span class="tag">案 D</span>
+          <h2>四角40px＋角バッジ</h2>
+        </div>
+        <p class="desc">
+          四角アバターを 40px に大きく、隅に Slack
+          バッジ。チャンネル行のロゴが不要になり情報密度UP。
+        </p>
+        <div class="stack">
+          <article class="card">
+            <div class="row center">
+              <span class="av-wrap">
+                <span class="av square av-40">田</span>
+                <span class="badge">
+                  <svg width="10" height="10" viewBox="0 0 122.8 122.8"><path fill="#e01e5a" d="M25.8 77.6c0 7.1-5.8 12.9-12.9 12.9S0 84.7 0 77.6s5.8-12.9 12.9-12.9h12.9zm6.5 0c0-7.1 5.8-12.9 12.9-12.9s12.9 5.8 12.9 12.9v32.3c0 7.1-5.8 12.9-12.9 12.9s-12.9-5.8-12.9-12.9z"/><path fill="#36c5f0" d="M45.2 25.8c-7.1 0-12.9-5.8-12.9-12.9S38.1 0 45.2 0s12.9 5.8 12.9 12.9v12.9zm0 6.5c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9H12.9C5.8 58.1 0 52.3 0 45.2s5.8-12.9 12.9-12.9z"/><path fill="#2eb67d" d="M97 45.2c0-7.1 5.8-12.9 12.9-12.9s12.9 5.8 12.9 12.9-5.8 12.9-12.9 12.9H97zm-6.5 0c0 7.1-5.8 12.9-12.9 12.9s-12.9-5.8-12.9-12.9V12.9C64.7 5.8 70.5 0 77.6 0s12.9 5.8 12.9 12.9z"/><path fill="#ecb22e" d="M77.6 97c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9-12.9-5.8-12.9-12.9V97zm0-6.5c-7.1 0-12.9-5.8-12.9-12.9s5.8-12.9 12.9-12.9h32.3c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9z"/></svg>
+                </span>
+              </span>
+              <div class="textcol">
+                <div class="name">田中 太郎</div>
+                <div class="channel"><span>#general</span></div>
+              </div>
+            </div>
+            <p class="body">明日の定例、資料のレビューお願いできますか？ドラフトを共有しました。</p>
+          </article>
+        </div>
+        <p class="note">アバターが主役。Slack 出自がひと目で分かる。</p>
+      </section>
+
+      <!-- フォールバック比較 -->
+      <section class="option">
+        <div class="label">
+          <span class="tag" style="background: #1f2328">比較</span>
+          <h2>フォールバック・長文の見え方</h2>
+        </div>
+        <p class="desc">
+          画像が無い／チャンネル名が長い場合の各案の崩れ方。左から 案A・案B・案D。
+        </p>
+        <div class="stack">
+          <article class="card">
+            <div class="row center">
+              <span class="av round av-36 b">佐</span>
+              <div class="textcol">
+                <div class="name">佐藤 花子</div>
+                <div class="channel">
+                  <svg class="slack-logo" width="12" height="12" viewBox="0 0 122.8 122.8"><path fill="#e01e5a" d="M25.8 77.6c0 7.1-5.8 12.9-12.9 12.9S0 84.7 0 77.6s5.8-12.9 12.9-12.9h12.9zm6.5 0c0-7.1 5.8-12.9 12.9-12.9s12.9 5.8 12.9 12.9v32.3c0 7.1-5.8 12.9-12.9 12.9s-12.9-5.8-12.9-12.9z"/><path fill="#36c5f0" d="M45.2 25.8c-7.1 0-12.9-5.8-12.9-12.9S38.1 0 45.2 0s12.9 5.8 12.9 12.9v12.9zm0 6.5c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9H12.9C5.8 58.1 0 52.3 0 45.2s5.8-12.9 12.9-12.9z"/><path fill="#2eb67d" d="M97 45.2c0-7.1 5.8-12.9 12.9-12.9s12.9 5.8 12.9 12.9-5.8 12.9-12.9 12.9H97zm-6.5 0c0 7.1-5.8 12.9-12.9 12.9s-12.9-5.8-12.9-12.9V12.9C64.7 5.8 70.5 0 77.6 0s12.9 5.8 12.9 12.9z"/><path fill="#ecb22e" d="M77.6 97c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9-12.9-5.8-12.9-12.9V97zm0-6.5c-7.1 0-12.9-5.8-12.9-12.9s5.8-12.9 12.9-12.9h32.3c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9z"/></svg>
+                  <span>#プロジェクト-リニューアル-2026-相談</span>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="row center">
+              <span class="av square av-36 b">佐</span>
+              <div class="textcol">
+                <div class="name">佐藤 花子</div>
+                <div class="channel">
+                  <svg class="slack-logo" width="12" height="12" viewBox="0 0 122.8 122.8"><path fill="#e01e5a" d="M25.8 77.6c0 7.1-5.8 12.9-12.9 12.9S0 84.7 0 77.6s5.8-12.9 12.9-12.9h12.9zm6.5 0c0-7.1 5.8-12.9 12.9-12.9s12.9 5.8 12.9 12.9v32.3c0 7.1-5.8 12.9-12.9 12.9s-12.9-5.8-12.9-12.9z"/><path fill="#36c5f0" d="M45.2 25.8c-7.1 0-12.9-5.8-12.9-12.9S38.1 0 45.2 0s12.9 5.8 12.9 12.9v12.9zm0 6.5c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9H12.9C5.8 58.1 0 52.3 0 45.2s5.8-12.9 12.9-12.9z"/><path fill="#2eb67d" d="M97 45.2c0-7.1 5.8-12.9 12.9-12.9s12.9 5.8 12.9 12.9-5.8 12.9-12.9 12.9H97zm-6.5 0c0 7.1-5.8 12.9-12.9 12.9s-12.9-5.8-12.9-12.9V12.9C64.7 5.8 70.5 0 77.6 0s12.9 5.8 12.9 12.9z"/><path fill="#ecb22e" d="M77.6 97c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9-12.9-5.8-12.9-12.9V97zm0-6.5c-7.1 0-12.9-5.8-12.9-12.9s5.8-12.9 12.9-12.9h32.3c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9z"/></svg>
+                  <span>#プロジェクト-リニューアル-2026-相談</span>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="row center">
+              <span class="av-wrap">
+                <span class="av square av-40 b">佐</span>
+                <span class="badge">
+                  <svg width="10" height="10" viewBox="0 0 122.8 122.8"><path fill="#e01e5a" d="M25.8 77.6c0 7.1-5.8 12.9-12.9 12.9S0 84.7 0 77.6s5.8-12.9 12.9-12.9h12.9zm6.5 0c0-7.1 5.8-12.9 12.9-12.9s12.9 5.8 12.9 12.9v32.3c0 7.1-5.8 12.9-12.9 12.9s-12.9-5.8-12.9-12.9z"/><path fill="#36c5f0" d="M45.2 25.8c-7.1 0-12.9-5.8-12.9-12.9S38.1 0 45.2 0s12.9 5.8 12.9 12.9v12.9zm0 6.5c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9H12.9C5.8 58.1 0 52.3 0 45.2s5.8-12.9 12.9-12.9z"/><path fill="#2eb67d" d="M97 45.2c0-7.1 5.8-12.9 12.9-12.9s12.9 5.8 12.9 12.9-5.8 12.9-12.9 12.9H97zm-6.5 0c0 7.1-5.8 12.9-12.9 12.9s-12.9-5.8-12.9-12.9V12.9C64.7 5.8 70.5 0 77.6 0s12.9 5.8 12.9 12.9z"/><path fill="#ecb22e" d="M77.6 97c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9-12.9-5.8-12.9-12.9V97zm0-6.5c-7.1 0-12.9-5.8-12.9-12.9s5.8-12.9 12.9-12.9h32.3c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9z"/></svg>
+                </span>
+              </span>
+              <div class="textcol">
+                <div class="name">佐藤 花子</div>
+                <div class="channel"><span>#プロジェクト-リニューアル-2026-相談</span></div>
+              </div>
+            </div>
+          </article>
+        </div>
+        <p class="note">長いチャンネル名は各案とも truncate（…）で1行維持。</p>
+      </section>
+    </div>
+  </body>
+</html>

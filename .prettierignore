@@ -1,0 +1,5 @@
+**/.git
+**/.svn
+**/.hg
+**/node_modules
+apps/assistant-workplace/frontend/public/guide/index.html

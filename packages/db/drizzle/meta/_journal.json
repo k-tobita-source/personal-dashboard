@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1781080968116,
+      "tag": "0000_loud_titanium_man",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1781493168419,
+      "tag": "0001_opposite_mother_askani",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1781575759559,
+      "tag": "0002_faulty_maverick",
+      "breakpoints": true
+    }
+  ]
+}

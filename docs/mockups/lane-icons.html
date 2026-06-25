@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>レーン見出しアイコン モック比較</title>
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+    <style>
+      :root {
+        --bg: #ffffff;
+        --fg: #0a0a0a;
+        --muted-fg: #71717a;
+        --muted: #f4f4f5;
+        --border: #e4e4e7;
+        --primary: #2563eb;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+        background: #fafafa;
+        color: var(--fg);
+        padding: 32px;
+      }
+      h1 { font-size: 18px; margin: 0 0 4px; }
+      .sub { color: var(--muted-fg); font-size: 13px; margin: 0 0 28px; }
+
+      .style-block {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 18px 20px 22px;
+        margin-bottom: 22px;
+      }
+      .style-title {
+        font-size: 13px;
+        font-weight: 600;
+        margin: 0 0 2px;
+      }
+      .style-note { font-size: 12px; color: var(--muted-fg); margin: 0 0 16px; }
+
+      /* 実際のボード見出しに近いレイアウト（4レーン） */
+      .lanes {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+      }
+      .lane {
+        background: var(--muted);
+        border-radius: 8px;
+        padding: 12px 12px 28px;
+      }
+      .lane-header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 10px;
+      }
+      .lane-header h2 {
+        font-size: 14px;
+        font-weight: 600;
+        margin: 0;
+      }
+      .lane-header iconify-icon {
+        font-size: 18px;
+        color: var(--fg);
+        flex-shrink: 0;
+      }
+      /* レーンごとのアクセント色（任意） */
+      .lane.todo .lane-header iconify-icon { color: #64748b; }
+      .lane.schedule .lane-header iconify-icon { color: var(--primary); }
+      .lane.progress .lane-header iconify-icon { color: #d97706; }
+      .lane.done .lane-header iconify-icon { color: #16a34a; }
+
+      .ghost-card {
+        height: 14px;
+        background: #fff;
+        border-radius: 4px;
+        border: 1px solid var(--border);
+        margin-top: 6px;
+      }
+      .size-row {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        margin-top: 14px;
+        padding-top: 12px;
+        border-top: 1px dashed var(--border);
+        font-size: 12px;
+        color: var(--muted-fg);
+      }
+      .size-row iconify-icon { color: var(--fg); }
+    </style>
+  </head>
+  <body>
+    <h1>レーン見出しアイコン — モック比較</h1>
+    <p class="sub">
+      Todo / Schedule / In&nbsp;Progress / Done の4見出しを、各アイコンセットで表示しています。実際の見出し（14px太字＋18pxアイコン）に近い見た目です。色はレーンごとに付けた一例です。
+    </p>
+
+    <!-- 1. Lucide -->
+    <div class="style-block">
+      <p class="style-title">A. Lucide（線アイコン・shadcn標準）</p>
+      <p class="style-note">stroke 2px / 角丸。currentColor 追従。導入: <code>lucide-react</code></p>
+      <div class="lanes">
+        <div class="lane todo">
+          <div class="lane-header"><iconify-icon icon="lucide:inbox"></iconify-icon><h2>Todo</h2></div>
+          <div class="ghost-card"></div><div class="ghost-card"></div>
+        </div>
+        <div class="lane schedule">
+          <div class="lane-header"><iconify-icon icon="lucide:calendar-clock"></iconify-icon><h2>Schedule</h2></div>
+          <div class="ghost-card"></div><div class="ghost-card"></div>
+        </div>
+        <div class="lane progress">
+          <div class="lane-header"><iconify-icon icon="lucide:loader-circle"></iconify-icon><h2>In Progress</h2></div>
+          <div class="ghost-card"></div><div class="ghost-card"></div>
+        </div>
+        <div class="lane done">
+          <div class="lane-header"><iconify-icon icon="lucide:circle-check-big"></iconify-icon><h2>Done</h2></div>
+          <div class="ghost-card"></div><div class="ghost-card"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Radix Icons -->
+    <div class="style-block">
+      <p class="style-title">B. Radix Icons（導入済み・15px ミニマル）</p>
+      <p class="style-note">新規依存なし（@acme/ui に同梱）。線が細め、種類は少なめ。</p>
+      <div class="lanes">
+        <div class="lane todo">
+          <div class="lane-header"><iconify-icon icon="radix-icons:archive"></iconify-icon><h2>Todo</h2></div>
+          <div class="ghost-card"></div><div class="ghost-card"></div>
+        </div>
+        <div class="lane schedule">
+          <div class="lane-header"><iconify-icon icon="radix-icons:calendar"></iconify-icon><h2>Schedule</h2></div>
+          <div class="ghost-card"></div><div class="ghost-card"></div>
+        </div>
+        <div class="lane progress">
+          <div class="lane-header"><iconify-icon icon="radix-icons:update"></iconify-icon><h2>In Progress</h2></div>
+          <div class="ghost-card"></div><div class="ghost-card"></div>
+        </div>
+        <div class="lane done">
+          <div class="lane-header"><iconify-icon icon="radix-icons:check-circled"></iconify-icon><h2>Done</h2></div>
+          <div class="ghost-card"></div><div class="ghost-card"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Phosphor regular -->
+    <div class="style-block">
+      <p class="style-title">C. Phosphor（regular）</p>
+      <p class="style-note">丸みのある均一ストローク。weight 変更で太さ調整可。導入: <code>@phosphor-icons/react</code></p>
+      <div class="lanes">
+        <div class="lane todo">
+          <div class="lane-header"><iconify-icon icon="ph:tray"></iconify-icon><h2>Todo</h2></div>
+          <div class="ghost-card"></div><div class="ghost-card"></div>
+        </div>
+        <div class="lane schedule">
+          <div class="lane-header"><iconify-icon icon="ph:calendar-blank"></iconify-icon><h2>Schedule</h2></div>
+          <div class="ghost-card"></div><div class="ghost-card"></div>
+        </div>
+        <div class="lane progress">
+          <div class="lane-header"><iconify-icon icon="ph:spinner-gap"></iconify-icon><h2>In Progress</h2></div>
+          <div class="ghost-card"></div><div class="ghost-card"></div>
+        </div>
+        <div class="lane done">
+          <div class="lane-header"><iconify-icon icon="ph:check-circle"></iconify-icon><h2>Done</h2></div>
+          <div class="ghost-card"></div><div class="ghost-card"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3b. Phosphor fill（参考: 塗り） -->
+    <div class="style-block">
+      <p class="style-title">C-2. Phosphor（fill・塗り）</p>
+      <p class="style-note">同じ Phosphor を塗りweightにした参考。しっかり感が出る。</p>
+      <div class="lanes">
+        <div class="lane todo">
+          <div class="lane-header"><iconify-icon icon="ph:tray-fill"></iconify-icon><h2>Todo</h2></div>
+          <div class="ghost-card"></div><div class="ghost-card"></div>
+        </div>
+        <div class="lane schedule">
+          <div class="lane-header"><iconify-icon icon="ph:calendar-blank-fill"></iconify-icon><h2>Schedule</h2></div>
+          <div class="ghost-card"></div><div class="ghost-card"></div>
+        </div>
+        <div class="lane progress">
+          <div class="lane-header"><iconify-icon icon="ph:spinner-gap-bold"></iconify-icon><h2>In Progress</h2></div>
+          <div class="ghost-card"></div><div class="ghost-card"></div>
+        </div>
+        <div class="lane done">
+          <div class="lane-header"><iconify-icon icon="ph:check-circle-fill"></iconify-icon><h2>Done</h2></div>
+          <div class="ghost-card"></div><div class="ghost-card"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. CoreUI -->
+    <div class="style-block">
+      <p class="style-title">D. CoreUI Free（cil・線）</p>
+      <p class="style-note">SVGを /public に直配置する想定（既存 SourceIcon と同方式）。JS依存ゼロ。</p>
+      <div class="lanes">
+        <div class="lane todo">
+          <div class="lane-header"><iconify-icon icon="cil:inbox"></iconify-icon><h2>Todo</h2></div>
+          <div class="ghost-card"></div><div class="ghost-card"></div>
+        </div>
+        <div class="lane schedule">
+          <div class="lane-header"><iconify-icon icon="cil:calendar"></iconify-icon><h2>Schedule</h2></div>
+          <div class="ghost-card"></div><div class="ghost-card"></div>
+        </div>
+        <div class="lane progress">
+          <div class="lane-header"><iconify-icon icon="cil:loop-circular"></iconify-icon><h2>In Progress</h2></div>
+          <div class="ghost-card"></div><div class="ghost-card"></div>
+        </div>
+        <div class="lane done">
+          <div class="lane-header"><iconify-icon icon="cil:check-circle"></iconify-icon><h2>Done</h2></div>
+          <div class="ghost-card"></div><div class="ghost-card"></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="sub" style="margin-top:24px">
+      ※ このモックは Iconify CDN で各ライブラリの実物アイコンを描画しています（比較用）。採用後は選んだライブラリのみをプロジェクトに導入します。
+    </p>
+  </body>
+</html>

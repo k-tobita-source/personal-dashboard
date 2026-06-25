@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "my-kanban": {
+      "command": "pnpm",
+      "args": ["-F", "@acme/mcp", "start"]
+    },
+    "confluence": {
+      "command": "uvx",
+      "args": ["mcp-atlassian"],
+      "env": {
+        "CONFLUENCE_URL": "http://confluence2.fh-all.com",
+        "CONFLUENCE_PERSONAL_TOKEN": "${CONFLUENCE_PERSONAL_TOKEN}",
+        "READ_ONLY_MODE": "true"
+      }
+    }
+  }
+}
